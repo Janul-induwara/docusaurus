@@ -1,0 +1,269 @@
+# What is Markdown?
+
+**Completed:** 100 XP  
+**Estimated time:** 12 minutes
+
+Markdown is a **markup language** that provides a simple way to write and format content without dealing directly with HTML.
+
+While **HTML** gives precise control over how content is displayed, it can become verbose and difficult to edit. Markdown offers a balance by allowing you to write in plain text while still creating well-formatted documents.
+
+In this guide, you'll learn:
+
+- Basic Markdown syntax
+- Text formatting
+- Headings
+- Lists
+- Tables
+- Links and images
+- Code blocks
+- GitHub-Flavored Markdown (GFM) features
+
+> **Note**
+>
+> This is a basic introduction to Markdown. For complete documentation, refer to the official Markdown Syntax Guide and the GitHub-Flavored Markdown (GFM) Specification.
+
+---
+
+# Emphasize Text
+
+## Italics
+
+Use either a single asterisk (`*`) or underscore (`_`).
+
+### Markdown
+
+```markdown
+This is *italic* text.
+This is also _italic_ text.
+```
+
+### Output
+
+This is *italic* text.  
+This is also _italic_ text.
+
+---
+
+## Bold
+
+Use two asterisks (`**`) or two underscores (`__`).
+
+### Markdown
+
+```markdown
+This is **bold** text.
+This is also __bold__ text.
+```
+
+### Output
+
+This is **bold** text.  
+This is also __bold__ text.
+
+---
+
+## Combine Bold and Italics
+
+### Markdown
+
+```markdown
+_This is **italic and bold** text._
+
+__This is bold and *italic* text__.
+```
+
+### Output
+
+_This is **italic and bold** text._
+
+__This is bold and *italic* text__.
+
+---
+
+## Escape Special Characters
+
+Use a backslash (`\`) to display Markdown symbols literally.
+
+### Markdown
+
+```markdown
+\_This is all \*\*plain\*\* text\_.
+```
+
+### Output
+
+```text
+_This is all **plain** text_.
+```
+
+---
+
+# Headings
+
+Markdown uses the `#` symbol to create headings.
+
+| Markdown | Output |
+|----------|--------|
+| `# Heading 1` | Largest heading |
+| `## Heading 2` | Second level |
+| `### Heading 3` | Third level |
+| `#### Heading 4` | Fourth level |
+| `##### Heading 5` | Fifth level |
+| `###### Heading 6` | Smallest heading |
+
+### Example
+
+```markdown
+###### This is H6 text
+```
+
+###### This is H6 text
+
+---
+
+# Links and Images
+
+## Images
+
+### Markdown
+
+```markdown
+![Link an image.](/learn/azure-devops/shared/media/mara.png)
+```
+
+---
+
+## Hyperlinks
+
+### Markdown
+
+```markdown
+[Link to Microsoft Training](/training)
+```
+
+---
+
+# Lists
+
+## Ordered List
+
+### Markdown
+
+```markdown
+1. First
+2. Second
+3. Third
+```
+
+### Output
+
+1. First
+2. Second
+3. Third
+
+---
+
+## Unordered List
+
+### Markdown
+
+```markdown
+- First
+    - Nested
+- Second
+- Third
+```
+
+### Output
+
+- First
+    - Nested
+- Second
+- Third
+
+---
+
+# Tables
+
+Use pipes (`|`) and dashes (`-`) to create tables.
+
+### Markdown
+
+```markdown
+| First | Second |
+|-------|--------|
+| 1 | 2 |
+| 3 | 4 |
+```
+
+### Output
+
+| First | Second |
+|-------|--------|
+| 1 | 2 |
+| 3 | 4 |
+
+---
+
+# Blockquotes
+
+Use the greater-than symbol (`>`).
+
+### Markdown
+
+```markdown
+> This is quoted text.
+```
+
+### Output
+
+> This is quoted text.
+
+---
+
+# Inline HTML
+
+Markdown doesn't support every HTML feature, but you can insert HTML directly.
+
+### Markdown
+
+```html
+Here is a<br />line break
+```
+
+### Output
+
+Here is a<br />line break
+
+---
+
+# Working with Code
+
+## Inline Code
+
+Wrap code in backticks.
+
+### Markdown
+
+```markdown
+This is `code`.
+```
+
+### Output
+
+This is `code`.
+
+---
+
+## Multi-line Code Blocks
+
+Use three backticks before and after the code.
+
+### Markdown
+
+````markdown
+```
+var first = 1;
+var second = 2;
+var sum = first + second;
+```
