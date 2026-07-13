@@ -1,0 +1,604 @@
+# Linux Basics
+
+
+Linux is an **open-source operating system** widely used for servers, cloud computing, cybersecurity, software development, and embedded systems. It is known for its stability, security, flexibility, and powerful command-line interface (CLI).
+
+Unlike Windows, Linux is built around the philosophy that **everything is a file**, allowing users to interact with files, directories, devices, and even processes using simple commands.
+
+In this guide, you'll learn:
+
+- What Linux is
+- Linux file system structure
+- Terminal basics
+- Essential Linux commands
+- File and directory management
+- Permissions
+- Processes
+- Package management
+- Useful shortcuts
+
+> **Note**
+>
+> Most Linux distributions (Ubuntu, Debian, Fedora, Arch, etc.) share many of the same commands. The examples in this guide primarily use Ubuntu.
+
+---
+
+# What is Linux?
+
+Linux is an operating system kernel created by **Linus Torvalds** in 1991. Today, it powers:
+
+- Web servers
+- Cloud platforms (AWS, Azure, Google Cloud)
+- Android phones
+- Raspberry Pi
+- Supercomputers
+- Cybersecurity tools like Kali Linux
+
+Some popular Linux distributions include:
+
+- Ubuntu
+- Debian
+- Fedora
+- CentOS
+- Arch Linux
+- Kali Linux
+
+---
+
+# Opening the Terminal
+
+The terminal is where you'll execute Linux commands.
+
+Example:
+
+```bash
+echo "Hello Linux!"
+```
+
+Output:
+
+```text
+Hello Linux!
+```
+
+---
+
+# Linux File System
+
+Linux uses a single directory tree beginning at the **root directory**.
+
+```text
+/
+├── bin
+├── boot
+├── dev
+├── etc
+├── home
+├── lib
+├── media
+├── opt
+├── proc
+├── root
+├── tmp
+├── usr
+└── var
+```
+
+## Important Directories
+
+| Directory | Purpose |
+|------------|----------|
+| `/` | Root directory |
+| `/home` | User files |
+| `/root` | Root user's home |
+| `/etc` | Configuration files |
+| `/bin` | Essential commands |
+| `/usr` | Installed programs |
+| `/var` | Logs and variable data |
+| `/tmp` | Temporary files |
+| `/dev` | Devices |
+| `/proc` | Process information |
+
+---
+
+# Navigation Commands
+
+## Print Current Directory
+
+```bash
+pwd
+```
+
+Example Output
+
+```text
+/home/john/Documents
+```
+
+---
+
+## List Files
+
+```bash
+ls
+```
+
+Useful options:
+
+```bash
+ls -l
+```
+
+Long listing
+
+```bash
+ls -a
+```
+
+Show hidden files
+
+```bash
+ls -lh
+```
+
+Human-readable file sizes
+
+---
+
+## Change Directory
+
+```bash
+cd Documents
+```
+
+Go back one folder
+
+```bash
+cd ..
+```
+
+Go to home directory
+
+```bash
+cd ~
+```
+
+Go to root directory
+
+```bash
+cd /
+```
+
+---
+
+# Working with Files
+
+## Create a File
+
+```bash
+touch notes.txt
+```
+
+---
+
+## View File Contents
+
+```bash
+cat notes.txt
+```
+
+Large file:
+
+```bash
+less notes.txt
+```
+
+View beginning:
+
+```bash
+head notes.txt
+```
+
+View end:
+
+```bash
+tail notes.txt
+```
+
+---
+
+## Copy Files
+
+```bash
+cp file.txt backup.txt
+```
+
+Copy folder
+
+```bash
+cp -r Folder BackupFolder
+```
+
+---
+
+## Move or Rename
+
+Rename
+
+```bash
+mv old.txt new.txt
+```
+
+Move
+
+```bash
+mv file.txt Documents/
+```
+
+---
+
+## Delete
+
+Delete file
+
+```bash
+rm file.txt
+```
+
+Delete folder
+
+```bash
+rm -r Folder
+```
+
+Force delete
+
+```bash
+rm -rf Folder
+```
+
+>  Be careful with `rm -rf`. Deleted files cannot be recovered easily.
+
+---
+
+# Working with Directories
+
+Create folder
+
+```bash
+mkdir Projects
+```
+
+Create nested folders
+
+```bash
+mkdir -p Web/API
+```
+
+Remove empty folder
+
+```bash
+rmdir Folder
+```
+
+---
+
+# Viewing File Contents
+
+Display first 10 lines
+
+```bash
+head file.txt
+```
+
+Display last 10 lines
+
+```bash
+tail file.txt
+```
+
+Monitor a log file
+
+```bash
+tail -f server.log
+```
+
+---
+
+# Searching
+
+Search files
+
+```bash
+find . -name "*.txt"
+```
+
+Search text inside files
+
+```bash
+grep "error" app.log
+```
+
+Ignore case
+
+```bash
+grep -i "error" app.log
+```
+
+Recursive search
+
+```bash
+grep -r "password" .
+```
+
+---
+
+# File Permissions
+
+View permissions
+
+```bash
+ls -l
+```
+
+Example:
+
+```text
+-rwxr-xr--
+```
+
+Breakdown
+
+| Symbol | Meaning |
+|---------|----------|
+| r | Read |
+| w | Write |
+| x | Execute |
+| - | Permission absent |
+
+Permissions belong to:
+
+- Owner
+- Group
+- Others
+
+---
+
+## Change Permissions
+
+```bash
+chmod 755 script.sh
+```
+
+Meaning:
+
+| Number | Permission |
+|---------|------------|
+| 7 | rwx |
+| 6 | rw- |
+| 5 | r-x |
+| 4 | r-- |
+
+---
+
+## Change Ownership
+
+```bash
+sudo chown john file.txt
+```
+
+---
+
+# Processes
+
+Show running processes
+
+```bash
+ps
+```
+
+Interactive process viewer
+
+```bash
+top
+```
+
+Modern alternative
+
+```bash
+htop
+```
+
+Kill process
+
+```bash
+kill 1234
+```
+
+Force kill
+
+```bash
+kill -9 1234
+```
+
+---
+
+# Disk Usage
+
+Show storage
+
+```bash
+df -h
+```
+
+Folder sizes
+
+```bash
+du -sh *
+```
+
+---
+
+# Networking
+
+Check IP
+
+```bash
+ip addr
+```
+
+Test connection
+
+```bash
+ping google.com
+```
+
+Download a file
+
+```bash
+wget https://example.com/file.zip
+```
+
+---
+
+# Package Management (Ubuntu)
+
+Update package list
+
+```bash
+sudo apt update
+```
+
+Upgrade packages
+
+```bash
+sudo apt upgrade
+```
+
+Install software
+
+```bash
+sudo apt install git
+```
+
+Remove software
+
+```bash
+sudo apt remove git
+```
+
+---
+
+# Users
+
+Current user
+
+```bash
+whoami
+```
+
+Current logged-in users
+
+```bash
+who
+```
+
+Switch user
+
+```bash
+su username
+```
+
+Run command as administrator
+
+```bash
+sudo command
+```
+
+---
+
+# Useful Keyboard Shortcuts
+
+| Shortcut | Action |
+|-----------|--------|
+| Ctrl + C | Stop current command |
+| Ctrl + Z | Suspend process |
+| Ctrl + D | Logout |
+| Ctrl + L | Clear terminal |
+| ↑ | Previous command |
+| ↓ | Next command |
+| Tab | Auto-complete |
+| Ctrl + R | Search command history |
+
+---
+
+# Environment Variables
+
+View all
+
+```bash
+printenv
+```
+
+View PATH
+
+```bash
+echo $PATH
+```
+
+Create variable
+
+```bash
+export NAME="John"
+```
+
+Use variable
+
+```bash
+echo $NAME
+```
+
+---
+
+# Helpful Commands
+
+| Command | Description |
+|----------|-------------|
+| `pwd` | Current directory |
+| `ls` | List files |
+| `cd` | Change directory |
+| `mkdir` | Create directory |
+| `touch` | Create file |
+| `cp` | Copy |
+| `mv` | Move/Rename |
+| `rm` | Delete |
+| `cat` | Display file |
+| `less` | Read file |
+| `find` | Search files |
+| `grep` | Search text |
+| `chmod` | Change permissions |
+| `chown` | Change owner |
+| `ps` | View processes |
+| `top` | Monitor processes |
+| `df` | Disk usage |
+| `du` | Folder size |
+| `sudo` | Run as administrator |
+
+---
+
+# Summary
+
+Linux is one of the most important operating systems for software engineers, cloud engineers, and cybersecurity professionals.
+
+After learning these basics, you should be comfortable with:
+
+- Navigating the file system
+- Managing files and folders
+- Searching for files and text
+- Viewing logs
+- Understanding permissions
+- Managing processes
+- Installing software
+- Using the terminal efficiently
+
+---
